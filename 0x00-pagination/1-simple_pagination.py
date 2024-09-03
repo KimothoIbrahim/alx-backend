@@ -37,9 +37,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """Make and return page
+        """
         assert isinstance(page, int) and isinstance(page_size, int)
-        assert page > 0, "Page must be graeter tahn Zero"
-        assert page_size > 0, "Page_size must be graeter tahn Zero"
+        assert page > 0
+        assert page_size > 0
         tup = index_range(page, page_size)
         if self.__dataset is None:
             self.dataset()
