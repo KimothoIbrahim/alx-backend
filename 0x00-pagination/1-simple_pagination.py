@@ -41,8 +41,9 @@ class Server:
         assert page > 0, "Page must be graeter tahn Zero"
         assert page_size > 0, "Page_size must be graeter tahn Zero"
         tup = index_range(page, page_size)
-        dataset = self.dataset()
-        if tup[0] > len(dataset):
+        if self.__dataset is None:
+            self.dataset()
+        if tup[0] > len(self.__dataset):
             return []
         if self.__dataset:
-            return dataset[tup[0]:tup[1]]
+            return self.__dataset[tup[0]:tup[1]]
