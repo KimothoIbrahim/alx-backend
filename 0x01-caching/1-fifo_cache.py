@@ -18,13 +18,13 @@ class FIFOCache(BaseCaching):
         if key or item:
             self.cache_data[key] = item
 
-        if key not in self.order:
-            self.order.append(key)
+            if key not in self.order:
+                self.order.append(key)
 
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            firstKey = self.order.pop(0)
-            del self.cache_data[firstKey]
-            print("DISCARD:", firstKey)
+            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+                firstKey = self.order.pop(0)
+                del self.cache_data[firstKey]
+                print("DISCARD:", firstKey)
 
     def get(self, key):
         """ retrieve item from cache """
