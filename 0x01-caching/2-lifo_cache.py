@@ -20,7 +20,7 @@ class LIFOCache(BaseCaching):
         """
         if key or value:
             self.cache_data[key] = item
-            
+
             self.order.append(key)
 
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
