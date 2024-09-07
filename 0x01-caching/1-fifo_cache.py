@@ -11,14 +11,18 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         """initilize FIFOCache"""
         super().__init__()
+        self.order = []
 
     def put(self, key, item):
         """ add something to cache """
         if key or item:
             self.cache_data[key] = item
 
+        if key not in self.order:
+            self.order.append(key)
+
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            firstKey = next(iter(self.cache_data))
+            firstKey = self.order.pop(0)
             del self.cache_data[firstKey]
             print("DISCARD:", firstKey)
 
