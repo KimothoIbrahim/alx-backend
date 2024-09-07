@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Implement a Fifo cache"""
 
-from collections import OrderedDict
 from base_caching import BaseCaching
 
 
@@ -12,7 +11,6 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         """initilize FIFOCache"""
         super().__init__()
-        self.cache_data = OrderedDict()
 
     def put(self, key, item):
         """ add something to cache """
