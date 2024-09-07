@@ -2,6 +2,7 @@
 """Implement a Fifo cache"""
 
 from base_caching import BaseCaching
+from typing import Optional, Any
 
 
 class FIFOCache(BaseCaching):
@@ -13,7 +14,7 @@ class FIFOCache(BaseCaching):
         super().__init__()
         self.order = []
 
-    def put(self, key, item):
+    def put(self, key: Any, item: Any) -> None:
         """ add something to cache """
         if key or item:
             self.cache_data[key] = item
@@ -26,7 +27,7 @@ class FIFOCache(BaseCaching):
                 del self.cache_data[firstKey]
                 print("DISCARD:", firstKey)
 
-    def get(self, key):
+    def get(self, key: Any) -> Optional[Any]:
         """ retrieve item from cache """
         if not key:
             return None
