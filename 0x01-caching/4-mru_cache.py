@@ -21,7 +21,7 @@ class MRUCache(BaseCaching):
         if key is None or item is None:
             return
 
-        if key in self.cache_data.keys():
+        if key in self.cache_data:
             self.cache_data[key] = item
             self.order.remove(key)
             self.order.append(key)
