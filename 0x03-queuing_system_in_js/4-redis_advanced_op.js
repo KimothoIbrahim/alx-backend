@@ -14,4 +14,4 @@ client.hset("HolbertonSchools",                                                 
   'Paris', '2',
   redis.print);
 
-client.hget("HolbertonSchools", 'Portland', (err, outcome) => {console.log('Portland', outcome)});
+client.hgetall("HolbertonSchools", (err, outcome) => {console.log('Portland', outcome)});
